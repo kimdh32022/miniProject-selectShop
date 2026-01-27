@@ -12,4 +12,5 @@ public class ProductRequestDto {
     private  String productName;
     private int productPrice;
     private int productStock;
+
 }

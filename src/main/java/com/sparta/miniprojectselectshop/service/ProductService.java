@@ -1,6 +1,6 @@
 package com.sparta.miniprojectselectshop.service;
 
-import com.sparta.miniprojectselectshop.dto.ProductDto;
+import com.sparta.miniprojectselectshop.dto.ProductResponseDto;
 import com.sparta.miniprojectselectshop.dto.ProductRequestDto;
 import com.sparta.miniprojectselectshop.entity.Product;
 import com.sparta.miniprojectselectshop.repository.ProductRepository;
@@ -21,21 +21,22 @@ public class ProductService {
 
 
     //등록하기
-    public void registerProduct(ProductDto productDto) {
+    public void registerProduct(ProductRequestDto requestDto) {
         Product product = new Product(
-                productDto.getName(),
-                productDto.getPrice(),
-                productDto.getStock()
+                requestDto.getProductName(),
+                requestDto.getProductPrice(),
+                requestDto.getProductStock()
         );
         productRepository.save(product);
     }
 
     //조회하기
-    public ProductDto getProduct(Long id){
+    public ProductResponseDto getProduct(Long id){
         Product product = productRepository.findById(id)
                 .orElseThrow(()-> new IllegalArgumentException("해당 상품이 존재하지 않습니다."));
 
-        return new ProductDto(
+        return new ProductResponseDto(
+                product.getProductId(),
                 product.getProductName(),
                 product.getProductPrice(),
                 product.getProductStock()
@@ -43,10 +44,10 @@ public class ProductService {
     }
 
     //전체 조회하기
-    public List<ProductDto> getAllProducts(){
+    public List<ProductResponseDto> getAllProducts(){
         List<Product> products = productRepository.findAll();
 
-        List<ProductDto> results = products.stream().map(product ->  new ProductDto(
+        List<ProductResponseDto> results = products.stream().map(product ->  new ProductResponseDto(
                 product.getProductId(),
                 product.getProductName(),
                 product.getProductPrice(),
