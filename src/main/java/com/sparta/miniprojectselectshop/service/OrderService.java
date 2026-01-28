@@ -25,7 +25,7 @@ public class OrderService {
     public void createOrder(OrderRequestDto requestDto) {
         Product product = productRepository.findById(requestDto.getProductId())
                 .orElseThrow(() -> new IllegalArgumentException("해당 상품이 존재하지 않습니다."));
-
+        // 재고 감소 시키고 주문 재고가 없다면 주문자체가 안되게
         product.decreaseStock();
 
         Order order = new Order(product);

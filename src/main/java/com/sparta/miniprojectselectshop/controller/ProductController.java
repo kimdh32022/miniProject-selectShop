@@ -18,7 +18,6 @@ public class ProductController {
     // 상품 등록하기
     @PostMapping("/product")
     public void registerProduct(@RequestBody ProductRequestDto requestDto) {
-
         productService.registerProduct(requestDto);
     }
 

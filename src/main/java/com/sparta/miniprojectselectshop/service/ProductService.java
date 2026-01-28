@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class ProductService {
@@ -21,39 +22,31 @@ public class ProductService {
 
 
     //등록하기
+    @Transactional
     public void registerProduct(ProductRequestDto requestDto) {
-        Product product = new Product(
-                requestDto.getProductName(),
-                requestDto.getProductPrice(),
-                requestDto.getProductStock()
-        );
+        Product product = Product.create(requestDto.getProductName(),requestDto.getProductPrice(),requestDto.getProductStock());
         productRepository.save(product);
     }
 
     //조회하기
+    @Transactional(readOnly = true)
     public ProductResponseDto getProduct(Long id){
+
         Product product = productRepository.findById(id)
                 .orElseThrow(()-> new IllegalArgumentException("해당 상품이 존재하지 않습니다."));
 
-        return new ProductResponseDto(
-                product.getProductId(),
-                product.getProductName(),
-                product.getProductPrice(),
-                product.getProductStock()
-        ); //여기 리턴은 조회해서 이름과 가격, 재고를 알아야 하기 때문에 줘야 함.
+        return ProductResponseDto.from(product);
     }
 
     //전체 조회하기
+    @Transactional(readOnly = true)
     public List<ProductResponseDto> getAllProducts(){
+
         List<Product> products = productRepository.findAll();
 
-        List<ProductResponseDto> results = products.stream().map(product ->  new ProductResponseDto(
-                product.getProductId(),
-                product.getProductName(),
-                product.getProductPrice(),
-                product.getProductStock()
-        ))
+        List<ProductResponseDto> results = products.stream().map(ProductResponseDto::from)
                 .toList();
+
         return results;
     }
 
@@ -72,6 +65,7 @@ public class ProductService {
     }
 
     // 삭제하기
+    @Transactional
     public void deleteProduct(Long id) {
         Product product = productRepository.findById(id)
                 .orElseThrow(()-> new IllegalArgumentException("해당 상품이 존재하지 않습니다."));

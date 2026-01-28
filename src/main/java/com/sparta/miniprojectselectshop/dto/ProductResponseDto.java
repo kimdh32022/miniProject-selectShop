@@ -1,5 +1,6 @@
 package com.sparta.miniprojectselectshop.dto;
 
+import com.sparta.miniprojectselectshop.entity.Product;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,5 +21,13 @@ public class ProductResponseDto {
         this.productStock = productStock;
     }
 
+    public static ProductResponseDto from(Product product){
+
+        return new ProductResponseDto(
+                product.getProductName(),
+                product.getProductPrice(),
+                product.getProductStock()
+        );
+    }
 
 }
