@@ -16,11 +16,11 @@ public class Order {
      private Long orderId;
 
      @ManyToOne(fetch = FetchType.LAZY)
-     @JoinColumn(name= "productId", nullable = false)
+     @JoinColumn(name= "product_Id", nullable = false)
      private Product product;
 
-     @Column
-     private Long count;
 
-
+     public Order(Product product) {
+          this.product = product;
+     }
 }

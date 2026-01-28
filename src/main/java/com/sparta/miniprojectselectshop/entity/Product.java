@@ -34,4 +34,11 @@ public class Product {
         this.productPrice = productPrice;
         this.productStock = productStock;
     }
+
+    public void decreaseStock() {
+        if (this.productStock <= 0) {
+            throw new IllegalArgumentException("재고가 없습니다.");
+        }
+        this.productStock -= 1;
+    }
 }
