@@ -1,13 +1,13 @@
 package com.sparta.miniprojectselectshop.entity;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @Getter
 @NoArgsConstructor
-
+@AllArgsConstructor
+@Builder(access = AccessLevel.PRIVATE)
 @Table(name = "orders")
 public class Order {
 
@@ -20,7 +20,14 @@ public class Order {
      private Product product;
 
 
-     public Order(Product product) {
+
+     protected Order(Product product) {
           this.product = product;
+     }
+
+     public static Order create(Product product){
+          return   Order.builder()
+                  .product(product)
+                  .build();
      }
 }
