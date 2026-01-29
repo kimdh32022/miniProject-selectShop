@@ -1,0 +1,102 @@
+body {
+    font-family: 'Pretendard', sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+main {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    width: 450px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* input-group 안의 input 스타일 */
+.input-group input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-secondary {
+    padding: 5px 10px;
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.list-container {
+    margin-top: 15px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+/* JS에서 동적으로 생성될 아이템 스타일 */
+.item {
+    border-bottom: 1px solid #eee;
+    padding: 10px;body { font-family: 'Pretendard', sans-serif; background-color: #f4f7f6; margin: 0; padding: 20px; }
+    header { text-align: center; margin-bottom: 30px; }
+    main { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+
+    .card { background: white; border-radius: 12px; padding: 20px; width: 450px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    h2 { color: #333; border-bottom: 2px solid #007bff; padding-bottom: 10px; }
+
+    .input-group input { display: block; width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
+
+    .btn-primary { width: 100%; padding: 12px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; }
+    .btn-secondary { width: 100%; padding: 10px; background-color: #6c757d; color: white; border: none; border-radius: 4px; cursor: pointer; margin-top: 5px; }
+
+    .list-container { margin-top: 20px; max-height: 400px; overflow-y: auto; }
+    .item { border-bottom: 1px solid #eee; padding: 15px 0; display: flex; justify-content: space-between; align-items: center; }
+    .item-info b { font-size: 1.1rem; }
+    .item-btns { display: flex; gap: 5px; }
+
+    .btn-order { background: #28a745; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; }
+    .btn-edit { background: #ffc107; color: black; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; }
+    .btn-delete { background: #dc3545; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; }
+
+    .result-box { background: #f8f9fa; padding: 15px; border-radius: 4px; margin-top: 10px; min-height: 60px; border-left: 4px solid #007bff; font-size: 14px; line-height: 1.5; }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.result-box {
+    background: #eee;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+    min-height: 40px;
+    font-size: 14px;
+}
