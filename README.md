@@ -24,8 +24,28 @@ Spring Boot 기반의 상품 선택 및 주문 미니 프로젝트입니다.
 <img src="screenshots/product-create.png">
  상품 등록 기능
 <img src="screenshots/product-list-one.png">
-상품 하나 조회
+상품 하나 조회 기능
 <img src="screenshots/product-list.png">
-
-
-
+상품 전체 조회 기능
+<img src="screenshots/product-update.png">
+상품 수정 기능
+<img src="screenshots/product-delete.png">
+상품 삭제 기능
+<img src="screenshots/order-create.png">
+주문 등록 기능
+<img src="screenshots/order-detail.png">
+주문 하나 조회 기능
+<img src="screenshots/order-detail-update-product.png">
+상품 수정 시 주문 목록 수정 기능
+<img src="screenshots/order-page.png">
+주문 전체 조회 기능
+<img src="screenshots/order-page-code.png">
+주문 페이징 처리 및 N + 1 문제 @EntityGraph로 해결 
+<img src="screenshots/n-plus-one-log.png">
+N + 1 문제 결과 로그
+<img src="screenshots/stock-concurrencyTest3.png">
+상품 Stock(재고) 감소 (1)
+<img src="screenshots/stock-concurrencyTest2.png">
+상품 Stock(재고) 감소 (2)
+<img src="screenshots/stock-concurrencyTest1.png">
+동시성 상품 Stock(재고) 감소 문제 해결 코드
