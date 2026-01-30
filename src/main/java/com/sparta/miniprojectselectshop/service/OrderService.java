@@ -26,11 +26,18 @@ public class OrderService {
     // 주문 만들기
     @Transactional
     public void createOrder(OrderRequestDto requestDto) {
+//         동시성 문제 발생이 일어나는 코드
+//        Product product = productRepository.findById(requestDto.getProductId())
+//                .orElseThrow(() -> new IllegalArgumentException("해당 상품이 존재하지 않습니다."));
+        // 비관적 락을 사용하여 일단 행동을 대기 시킴.
+        Product product = productRepository.findByWithLock(
+                requestDto.getProductId()
+        );
+        if (product == null) {
+            throw new IllegalArgumentException("해당 상품이 존재하지 않습니다.");
+        }
 
-        Product product = productRepository.findById(requestDto.getProductId())
-                .orElseThrow(() -> new IllegalArgumentException("해당 상품이 존재하지 않습니다."));
-
-        // 재고 감소 시키고 주문 재고가 없다면 주문자체가 안되게
+        // 재고 감소 시키고 주문 재고가 없다면 주문X
         product.decreaseStock();
 
         // 주문 생성 => Entity 객체에서 정적 팩토리 메서드 사용
