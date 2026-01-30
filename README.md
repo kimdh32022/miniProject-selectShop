@@ -20,9 +20,9 @@ Spring Boot 기반의 상품 선택 및 주문 미니 프로젝트입니다.
 - MySQL
 
 # 기능 구현
-
+    상품 등록 기능
 <img src="screenshots/product-create.png">
- 상품 등록 기능
+    상품 하나 조회 기능
 <img src="screenshots/product-list-one.png">
 상품 하나 조회 기능
 <img src="screenshots/product-list.png">
